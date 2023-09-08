@@ -1,0 +1,4 @@
+kernel.o
+kernel8.elf
+kernel8.img
+boot.o
