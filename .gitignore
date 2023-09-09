@@ -1,6 +1,6 @@
-kernel.o
-kernel8.elf
-kernel8.img
-boot.o
+*.o
+*.img
+*.elf
 /disk/*
 /.vscode/*
+/lib/*
