@@ -80,7 +80,7 @@ boolean DWHCIDeviceTransferStageAsync (TDWHCIDevice *pThis, TUSBRequest *pURB, b
 void DWHCIDeviceStartTransaction (TDWHCIDevice *pThis, TDWHCITransferStageData *pStageData);
 void DWHCIDeviceStartChannel (TDWHCIDevice *pThis, TDWHCITransferStageData *pStageData);
 void DWHCIDeviceChannelInterruptHandler (TDWHCIDevice *pThis, unsigned nChannel);
-void DWHCIDeviceInterruptHandler (void *pParam);
+
 void DWHCIDeviceTimerHandler (TKernelTimerHandle hTimer, void *pParam, void *pContext);
 unsigned DWHCIDeviceAllocateChannel (TDWHCIDevice *pThis);
 void DWHCIDeviceFreeChannel (TDWHCIDevice *pThis, unsigned nChannel);

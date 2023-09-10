@@ -30,10 +30,12 @@
 #include <uspi/usb.h>
 #include <uspi/types.h>
 #include <uspios.h>
+#include <uspi/DWHCIDeviceInterruptHandler.h>
 
 #ifdef __cplusplus
 extern "C" {
 #endif
+
 
 typedef struct TDWHCIDevice
 {

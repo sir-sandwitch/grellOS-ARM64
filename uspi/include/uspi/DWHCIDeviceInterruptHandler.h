@@ -1,0 +1,1 @@
+void DWHCIDeviceInterruptHandler (void *pParam); // used to be in dwhcidevice.c

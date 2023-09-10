@@ -1,4 +1,5 @@
 #include "kernel.h"
+#include "irqlist.h"
 
 void enable_interrupt_controller() {
     REGS_IRQ->irq0_enable_0 = SYS_TIMER_IRQ_1 | SYS_TIMER_IRQ_3;
@@ -23,5 +24,12 @@ void handle_irq() {
 
             handle_timer_3();
         }
+
+        if (irq & SYS_USB_IRQ_9) {
+            irq &= ~SYS_USB_IRQ_9;
+
+            funcPointer(argPointer);
+        }
+        
     }
 }

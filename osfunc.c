@@ -2,6 +2,7 @@
 #include "fb.h"
 #include "osfunc.h"
 #include "kernel.h"
+#include "irqlist.h"
 
 void MemoryPoolInit(unsigned nBlocks, unsigned nBlockSize){
     // initialize a memory pool
@@ -125,8 +126,8 @@ void CancelKernelTimer(unsigned hTimer){
 void ConnectInterrupt(unsigned nIRQ, TInterruptHandler *pHandler, void *pParam){
     // connect an interrupt handler to an IRQ
     // USPi uses IRQ 9 for USB
-
-
+    funcPointer = pHandler;
+    argPointer = pParam;
 }
 
 int SetPowerStateOn(unsigned nDeviceId){
