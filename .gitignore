@@ -3,4 +3,3 @@
 *.elf
 /disk/*
 /.vscode/*
-/lib/*
