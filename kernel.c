@@ -2,6 +2,8 @@
 #include "fb.h"
 #include "uspi/include/uspios.h"
 #include "uspi/include/uspi.h"
+#include "osfunc.h"
+#include "kernel.h"
 
 // void main()
 // {
@@ -33,8 +35,26 @@ static void KeyPressedHandler (const char *pString)
 	ScreenDeviceWrite (USPiEnvGetScreen (), pString, strlen (pString));
 }
 
+//count on timer 1 (1MHz)
+void handle_timer_1(){
+    timer1_val += timer1_int;
+    REGS_TIMER->compare[1] = timer1_val;
+    REGS_TIMER->control_status |= SYS_TIMER_IRQ_1;
+}
+
+//count on timer 3 (250KHz)
+void handle_timer_3(){
+    timer3_val += timer3_int;
+    REGS_TIMER->compare[3] = timer3_val;
+    REGS_TIMER->control_status |= SYS_TIMER_IRQ_3;
+}
+
 int main (void)
 {
+    MemoryPoolInit(67108864, 4);
+
+    timer_init();
+
 	if (!USPiEnvInitialize ())
 	{
 		return 1;

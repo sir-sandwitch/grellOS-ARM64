@@ -1,8 +1,21 @@
+#define LOCAL_CONTROL   0xff800000
+#define LOCAL_PRESCALER 0xff800008
+#define OSC_FREQ        54000000
+#define MAIN_STACK      0x400000
+
 .section ".text.boot"  // Make sure the linker puts this at the start of the kernel image
 
 .global _start  // Execution starts here
 
 _start:
+    ldr     x0, =LOCAL_CONTROL   // Sort out the timer
+    str     wzr, [x0]
+    mov     w1, 0x80000000
+    str     w1, [x0, #(LOCAL_PRESCALER - LOCAL_CONTROL)]
+    ldr     x0, =OSC_FREQ
+    msr     cntfrq_el0, x0
+    msr     cntvoff_el2, xzr
+    
     // Check processor ID is zero (executing on main core), else hang
     mrs     x1, mpidr_el1
     and     x1, x1, #3
