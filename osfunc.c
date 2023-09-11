@@ -72,6 +72,17 @@ void *malloc(unsigned nSize){
     else{
         //alloc single block
         if(pMemoryPool->nFreeBlocks == 0){
+            //check if there are any freed blocks
+            for(int i = 0; i < pMemoryPool->nBlocks; i++){
+                if(pMemoryPool->pFreeList[i] == 0){
+                    void *ptr;
+                    pMemoryPool->pFreeList[i] = ptr;
+                    pMemoryPool->nAllocatedBlocks++;
+                    pMemoryPool->nFreeBlocks--;
+                    return ptr;
+                }
+            }
+            //no free blocks, return 0
             pMemoryPool->nFailedAllocations++;
             return 0;
         }
