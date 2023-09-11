@@ -1,6 +1,15 @@
+#ifndef io_h
 #include "io.h"
+#define io_h
+#endif
+#ifndef mb_h
 #include "mb.h"
+#define mb_h
+#endif
+#ifndef terminal_h
 #include "terminal.h"
+#define terminal_h
+#endif
 
 unsigned int width, height, pitch, isrgb;
 unsigned char *fb;

@@ -1,4 +1,7 @@
+#ifndef io_h
 #include "io.h"
+#define io_h
+#endif
 
 // The buffer must be 16-byte aligned as only the upper 28 bits of the address can be passed via the mailbox
 volatile unsigned int __attribute__((aligned(16))) mbox[36];

@@ -1,4 +1,7 @@
+#ifndef io_h
 #include "io.h"
+#define io_h
+#endif
 
 // GPIO
 

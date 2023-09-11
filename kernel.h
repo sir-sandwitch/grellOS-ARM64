@@ -46,7 +46,7 @@ void disable_interrupt_controller();
 void handle_timer_1();
 void handle_timer_3();
 
-const unsigned int timer1_int = CLOCKHZ;
-const unsigned int timer3_int = CLOCKHZ / 4;
-unsigned int timer1_val = 0;
-unsigned int timer3_val = 0;
+extern const unsigned int timer1_int;
+extern const unsigned int timer3_int;
+extern unsigned int timer1_val;
+extern unsigned int timer3_val;

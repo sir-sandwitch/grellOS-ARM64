@@ -1,5 +1,11 @@
+#ifndef kernel_h
 #include "kernel.h"
+#define kernel_h
+#endif
+#ifndef irqlist_h
 #include "irqlist.h"
+#define irqlist_h
+#endif
 
 void enable_interrupt_controller() {
     REGS_IRQ->irq0_enable_0 = SYS_TIMER_IRQ_1 | SYS_TIMER_IRQ_3;

@@ -31,4 +31,18 @@ enum {
     MBOX_TAG_LAST       = 0
 };
 
+// typedef struct TPropertyTagPowerState
+// {
+// 	TPropertyTag	Tag;
+// 	unsigned int		nDeviceId;
+// 	#define DEVICE_ID_SD_CARD	0
+// 	#define DEVICE_ID_USB_HCD	3
+// 	unsigned int		nState;
+// 	#define POWER_STATE_OFF		(0 << 0)
+// 	#define POWER_STATE_ON		(1 << 0)
+// 	#define POWER_STATE_WAIT	(1 << 1)
+// 	#define POWER_STATE_NO_DEVICE	(1 << 1)	// in response
+// }
+// TPropertyTagPowerState;
+
 unsigned int mbox_call(unsigned char ch);
