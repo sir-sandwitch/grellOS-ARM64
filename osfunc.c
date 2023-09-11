@@ -96,14 +96,28 @@ void *malloc(unsigned nSize){
 void free(void *pBlock){
     // free a block of memory allocated with malloc
     // pBlock must be a pointer returned by malloc
-    // pBlock may be 0 (in which case free does nothing)
-    if(pBlock == 0){
+    // sets the memory to 0
+
+    //check if pBlock is a valid pointer
+    int valid = 0;
+    int validAddr = 0;
+    for(int i = 0; i < pMemoryPool->nBlocks; i++){
+        if(pMemoryPool->pFreeList[i] == pBlock){
+            valid = 1;
+            validAddr = i;
+            break;
+        }
+    }
+    if(valid == 0){
+        pMemoryPool->nFailedFrees++;
         return;
     }
-    pMemoryPool->pFreeList[pMemoryPool->nAllocatedBlocks] = pBlock;
+    //free block
+    pMemoryPool->pFreeList[validAddr] = 0;
     pMemoryPool->nAllocatedBlocks--;
     pMemoryPool->nFreeBlocks++;
 }
+    
 
 void MsDelay(unsigned nMilliSeconds){
     // delay for nMilliSeconds milliseconds
