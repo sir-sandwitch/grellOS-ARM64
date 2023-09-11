@@ -14,10 +14,10 @@
 #include "kernel.h"
 #define kernel_h
 #endif
-#ifndef irqlist_h
-#include "irqlist.h"
-#define irqlist_h
-#endif
+// #ifndef irqlist_h
+// #include "irqlist.h"
+// #define irqlist_h
+// #endif
 #ifndef mb_h
 #include "mb.h"
 #define mb_h
@@ -26,6 +26,10 @@
 #include "io.h"
 #define io_h
 #endif
+
+void (*funcPointer)(void*);
+void (*argPointer);
+MemoryPool_t *pMemoryPool; //only defined here, sorry :( call extern in other files i guess
 
 void MemoryPoolInit(unsigned nBlocks, unsigned nBlockSize){
     // initialize a memory pool

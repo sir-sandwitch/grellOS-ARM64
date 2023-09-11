@@ -1,2 +1,2 @@
-void (*funcPointer)(void*);
-void (*argPointer);
+extern void (*funcPointer)(void*);
+extern void (*argPointer);

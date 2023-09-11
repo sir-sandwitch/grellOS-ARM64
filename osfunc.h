@@ -15,6 +15,4 @@ typedef struct MemoryPool{
 
 void MemoryPoolInit(unsigned nBlocks, unsigned nBlockSize);
 
-MemoryPool_t *pMemoryPool;
-
 char* numToString(void *num, int base, char *buf);
