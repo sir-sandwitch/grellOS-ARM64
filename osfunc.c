@@ -33,10 +33,9 @@ MemoryPool_t *pMemoryPool; //only defined here, sorry :( call extern in other fi
 
 void MemoryPoolInit(unsigned nBlocks, unsigned nBlockSize){
     // initialize a memory pool
-    void *ptr;
     void *pFreeList[nBlocks];
     for (int i = 0; i < nBlocks; i++){
-        pFreeList[i] = ptr;
+        pFreeList[i] = 0;
     }
     pMemoryPool->nBlocks = nBlocks;
     pMemoryPool->nBlockSize = nBlockSize;
